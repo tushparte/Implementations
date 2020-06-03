@@ -22,7 +22,7 @@ class MaxHeap {
 
     // O(1)
     int RightChild(int i) {
-      if (2 * i + 2 >= count)  return -1;
+      if (2 * i + 2 >= count) return -1;
       return 2 * i + 2;
     }
 
@@ -59,7 +59,6 @@ class MaxHeap {
 
     // O(log(n))
     void insert(int data) {
-      printHeap();
       h.push_back(0); // dummy element
       int i = count - 1;
       count++;
@@ -69,7 +68,6 @@ class MaxHeap {
       }
       if (i < 0) i = 0;
       h[i] = data;
-      printHeap();
     }
 
     // O(1)
@@ -98,8 +96,6 @@ class MaxHeap {
 
 int main()
 {
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
   vector<int> v = {4,1,3,2,16,9,10,14,8,7};
   MaxHeap h(v);
   h.printHeap();
@@ -107,6 +103,5 @@ int main()
   h.printHeap();
   h.insert(100);
   h.printHeap();
-  cout <<(0 - 1) / 2 << endl;
   return 0;
 }

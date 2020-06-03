@@ -1,7 +1,14 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
+/* Analysis:
+ * Worst Case: O(N + Mlog*N)
+ * N: number of Objects
+ * M: Number of Union operations
+ * log*: iterative log (number of log operations required to reach 1)
+ * As log * is constant in this universe,
+ * Worst Case: O((M+N)) -> linear in prac
+ * */
 class QuickUnion
 {
     private:
@@ -45,7 +52,7 @@ class QuickUnion
                 size[j] += size[i]; 
             } else {
                 id[j] = i;
-                size[i] = size[j];
+                size[i] += size[j];
             }
         }
 };
