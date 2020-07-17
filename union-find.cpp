@@ -9,15 +9,12 @@ using namespace std;
  * As log * is constant in this universe,
  * Worst Case: O((M+N)) -> linear in prac
  * */
-class QuickUnion
-{
+class QuickUnion {
     private:
         int *id;
         int *size;
-        int root(int i)
-        {
-            while(i != id[i])
-            {
+        int root(int i) {
+            while(i != id[i]) {
                 // path compression
                 id[i] = id[id[i]]; 
                 i = id[i];
@@ -26,28 +23,23 @@ class QuickUnion
         }
     
     public:
-        QuickUnion(int n)
-        {
+        QuickUnion(int n) {
             id = new int[n * sizeof(int)];
             size = new int[n * sizeof(int)];
-            for(int i=0 ; i<n ; i++)
-            {
+            for(int i=0 ; i<n ; i++) {
                 id[i] = i;
                 size[i] = 1;
             }
         }
 
-        bool find(int p, int q)
-        {
+        bool find(int p, int q) {
             return root(p) == root(q);
         }
 
-        void unite(int p, int q)
-        {
+        void unite(int p, int q) {
             int i = root(p);
             int j = root(q);
-            if(size[i] < size[j])
-            {
+            if(size[i] < size[j]) {
                 id[i] = j;
                 size[j] += size[i]; 
             } else {
@@ -57,8 +49,7 @@ class QuickUnion
         }
 };
 
-int main()
-{
+int main() {
     QuickUnion *q = new QuickUnion(10);
     q -> unite(1, 2);
     cout << q -> find(1, 2) << endl;
