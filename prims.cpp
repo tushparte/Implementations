@@ -28,6 +28,7 @@ void Graph::primMST() {
 	// minheap
 	priority_queue< iPair, vector <iPair> , greater<iPair> > pq;
 	int src = 0;
+	// distance
 	vector<int> key(V, INF);
 	vector<int> parent(V, -1);
 	vector<bool> inMST(V, false);

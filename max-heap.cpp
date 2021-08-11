@@ -60,7 +60,7 @@ class MaxHeap {
     // O(log(n))
     void insert(int data) {
       h.push_back(0); // dummy element
-      int i = count - 1;
+      int i = count;
       count++;
       while (i != 0 and data > h[(i - 1) / 2]) {
         h[i] = h[(i - 1) / 2];
@@ -103,5 +103,9 @@ int main()
   h.printHeap();
   h.insert(100);
   h.printHeap();
+  while (h.getMax() != INT_MIN) {
+    cout << h.getMax() << " ";
+    h.deleteMax();
+  }
   return 0;
 }

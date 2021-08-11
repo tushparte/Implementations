@@ -51,6 +51,7 @@ class QuickUnion {
 
 int main() {
     QuickUnion *q = new QuickUnion(10);
+    QuickUnion dsu(10);
     q -> unite(1, 2);
     cout << q -> find(1, 2) << endl;
     q -> unite(4, 5);
